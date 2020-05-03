@@ -152,20 +152,107 @@ The following software and tools were used to perform the analysis:
 \end{itemize}
 
 \paragraph{Cleanup}
-
+After using Pandas Python package to read and combine the edges list and pages categories information csv files, the next step would be converting the data into graph object and removing self-loops, edges that connect a node to itself. After removing self-loops, the total edge count reduced from 171,002 to 170,823.
 
 \paragraph{High Level Information} 
+The average degree is 15.2045, which means that on average, each node connects to about 15 other nodes. 
 
+\begin{figure}[hbt!]
+\includegraphics[scale=0.2]{pie_chart_category.png} 
+\caption{Percentage of Page Category}
+\end{figure}
+
+\textbf{Figure 2} provides the composition of page category within the network.
+
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.35]{gephi_whole_network_composition.JPG} 
+\caption{Whole Network Visualization by Page Category}
+\end{figure}
+
+
+The same composition can be shown and visualized using Gephi as shown in \textbf{Figure 3}. One advantage of using Gephi over pie chart is the visual of clustered areas within a network. There is a highly connected area and some small clustered areas within governmental organization pages. Politicians and tv show pages also have more clustered area toward the outer part of the graph and Company pages don't have any obvious cluster. 
+
+However, graphing the whole population makes it difficult to get more information out of the network. One way to workaround that is to filter the network into a smaller network of high degree nodes for more observations. By filtering the whole network to only select giant components with higher than 100 degree nodes, it resulted in a smaller network that only contains 314 nodes with 5,686 edges.
+
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.4]{gephi_filtered_100_degree.JPG} 
+\caption{Visualization of Network with Nodes Greater Than 100 Degree}
+\end{figure}
+
+\textbf{Figure 4} shows that governmental organizations and politicians pages made of the majority of the population in a network of higher than 100 degree nodes. It is also quite easy to identify the cluster areas (about 5 areas).
+
+Another high level measurement that is important and perhaps the most obvious measure of influence was a measurement of the degree of every node in the network. Degree centrality provides a simple yet telling quantitative data point for the number of edges or connections a given node has \cite{newman2008mathematics}.
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.5]{top_ten_degree.png} 
+\caption{Top Ten Highest Degree Pages}
+\end{figure}
+
+\textbf{Figure 5} contains the list of the top ten nodes that have the highest degree centrality within the whole network. One observation is that all of them are governmental organization pages; it aligns with the high composition of governmental organization pages shown in \textbf{Figure 4} earlier. It is interesting to see that the top five highest nodes are United State's related pages. Is it because the majority of Facebook users are in the United States or were the data skewed? Those are the questions that should be answered before making business or important decisions using this dataset.
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.4]{top_ten_degree_company.png} 
+\caption{Top Ten Highest Degree Company Pages}
+\end{figure}
+\begin{figure}[hbt!]
+\includegraphics[scale=0.57]{top_ten_degree_tvshow.png} 
+\caption{Top Ten Highest Degree TV Show Pages}
+\end{figure}
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.7]{top_ten_degree_politician.png} 
+\caption{Top Ten Highest Degree Politician Pages}
+\end{figure}
+
+
+Additional filter of page type was added to get the top ten highest nodes of company pages, television shows, and politicians shown in \textbf{Figure 6}, \textbf{Figure 7}, and \textbf{Figure 8} respectively.  
+
+Both of the top highest nodes under company and politician pages are about half of the degree amount comparing to the highest node in governmental organization. Television show pages seems to have the least influential power within this network.
 
 \subsection{Calculate Measurements }
+There are other centrality measurements that can be used to identify influential nodes within a network. It is important to understand the similarities and differences between these measurements and degree centrality to help with future network analysis. If degree centrality yields similar results to the rest of the other measurements, it might save time for researchers and scientists from having to calculate and perform deep-dive analysis.
 
 \subsubsection{Betweenness Centrality} 
+One of the useful centrality measurements to analyze a network is betweenness centrality. Betweenness centrality finds the path between every node in the network, then finds the shortest path and the nodes that fall into the most of these shortest paths will have the highest betweenness score \cite{newman2008mathematics}. 
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.5]{top_ten_betweennness.png} 
+\caption{Top Ten Highest Betweenness Centrality}
+\end{figure}
+
+\textbf{Figure 9} contains the top ten highests betweenness centrality nodes. The top ten nodes as calculated by their betweenness scores provides six governmental organization nodes, two politicians and two companies. The range of the scores is between 0.0155 for the 10th highest, and 0.116 for the 1st highest score.
+
+
 
 \subsubsection{Closeness Centrality}
+The next centrality measurement to analyze is closeness centrality. Closeness centrality provides the average path length between one node to every other vertex \cite{newman2008mathematics}.
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.5]{top_ten_closeness.png} 
+\caption{Top Ten Highest Closeness Centrality}
+\end{figure}
+
+\textbf{Figure 10} provided two companies, one politician, and seven governmental organizations in the top ten overall nodes with the highest Closeness centrality scores. The 10th highest had 0.0297 and the highest had 0.324.
+
 
 \subsubsection{Eigenvector Centrality} 
+
+Lastly, Eigenvector centrality need to be measured for this network. Eigenvector centrality measures the connections a node has, not just the quantity, but also the quality or the influence of those connected nodes. A high Eigenvector score would indicate that a node is connected to many other highly influential, high scoring nodes \cite{newman2008mathematics}. 
  
-\subsection{Community Detection -Modularity}
+\begin{figure}[hbt!]
+\includegraphics[scale=0.4]{top_ten_eigenvector.png} 
+\caption{Top Ten Highest Eigenvector Centrality}
+\end{figure}
+
+Similar to degree, the top ten Eigenvector nodes are government related page types.  The range of the top ten eigenvector nodes ranges from 0.106 to 0.178 shown in \textbf{Figure 11}.
+
+\subsection{Community Detection - Modularity}
+The second objective evolves around the idea of community within a network and method to detect those communities. According to a research article called "Defining and Identifying Communities in Networks", a community is a group of nodes that have more dense connections  between themselves comparing to the rest of the network \cite{Radicchi2658}. One of the popular methods to detect community is by using Modularity measurement. Modularity is "the the portion of the edge connections within the same cluster minus the expected portion if the connections were distributed randomly" \cite{li_modular}.
+
+Gephi can calculate and divide a network into each Modularity Class by providing a resolution number. According to Gephi's instruction, the higher the resolution value, the fewer the modularity classes there are. By passing a resolution value of 10, Gephi detected 8 modularity classes. 
+
 
 \subsection{Visualize, Analyze and Compare}
 
