@@ -113,11 +113,33 @@ The second objective is to answer the question that will identify the different 
 
 \subsection{Existing Work}
 
-\paragraph{Existing Work 1 \cite{world-happiness-report-2018}} Text here
-   
-\paragraph{Existing Work 2 \cite{world-happiness-report-2018}} Text here
+Social media is increasingly prevalent in commerce, politics, and all societal interaction. Unsurprising, research seeking to measure and understand social media influence and impact is prevalent. 
+There are several studies that are related to our project objectives. Several use similar centrality measures and some community detection techniques. 
 
-\paragraph{Existing Work 3 \cite{world-happiness-report-2018}} Text here
+
+\paragraph{Existing Work 1 \cite{world-happiness-report-2018}} A Comparative Study of Modularity-Based Community Detection Methods for Online Social Networks 
+
+http://ceur-ws.org/Vol-2201/UYMS_2018_paper_68.pdf	
+
+Karatas & Sahin also focus on communities in social networks using modularity. The study assesses datasets from multiple social media platforms using different static community detection algorithms and specifically focus on “modularity values, running time and accuracy” and compare and contrast these different algorithms for community detection assessing their strengths and weaknesses. The performance of the different algorithms were analyzed by measuring their modularity value, F1-socre, and running time. Five different algorithms were used and the Louvain algorithm performed the best overall. The study suggests the following as problems with the current available community detection algorithms: stability, scalability, refinement on computational complexity, dynamicity, and prediction. These ideas prompt and encourage future research on community network structure and development of new community detection algorithms. 
+   
+\paragraph{Existing Work 2 \cite{world-happiness-report-2018}} Social Circles in Facebook communities
+
+http://cseweb.ucsd.edu/classes/sp15/cse190-c/reports/sp15/022.pdf
+
+The Social Circles in Facebook Communities study used the egonet dataset to assess specific subsets of the Facebook network which they termed social circles. Social circles are smaller groups within an individual’s social network such as friends from highschool or the workplace. The study utilized the egonet data set to construct various models of social circles and calculate Min Edit Distance and was purposed to: “predict what communities would form or what circles can be created using the given friendships” (Bansal, Anandan, & Techavatnavisal). Initially Clique Percolation to model the social circle data, but later in the study, the researchers found that Spectral Clustering was more effective. “Spectral Clustering is a way to cluster based on ‘Affinity’ and connectivity” (Bansal, Anandan, & Techavatnavisal). Our study perhaps is a logical partner and expansion on this study. In the future perhaps integrating these two concepts would benificatial. The incorporation influence assessment might be a beneficial step towards identifying how communities would form around influential nodes.
+
+\paragraph{Existing Work 3 \cite{world-happiness-report-2018}} Network Analysis of Page Likes from Facebook User Profiles
+
+https://ufdc.ufl.edu/UF00091523/00851
+
+This study is unique because instead of analyzing social media network data where the nodes represent individuals connected to other individuals, they place Facebook pages representing companies instead of individuals as the nodes and connect them to people based upon page likes. Using the myPersonality application, Facebook pages with at least 100 likes were included as nodes and data was analyzed by calculation of clustering coefficient, diameter, and average path length. The study found that “the network’s in-degree distribution follows a power law” (Brauner, Kocheturov, & Pardalos). The conclusion of the study is that the structure of social media networks is consistent with small-world networks which are “characterized by dense local clustering and a short average path length between pairs of nodes” (Brauner, Kocheturov, & Pardalos)
+
+\paragraph{Existing Work 4 \cite{world-happiness-report-2018}} Social Network Analysis with NetworkX
+
+https://blog.dominodatalab.com/social-network-analysis-with-networkx/
+
+This study used the Python library NetworkX to analyze network data from Facebook in graphic form. Using Facebook ego network which structures data along a central vertex, the exercise started by analyzing betweenness centrality to determine the most connected individuals present in the dataset. After calculating betweenness centrality, the highest scoring 10 in the dataset were placed as central hubs within the graph. Next different communities were identified using community detection algorithms focusing on the modularity of the network or the fraction of edges. 
 
 
 \section{Process and Approaches}
