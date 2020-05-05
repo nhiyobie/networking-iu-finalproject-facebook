@@ -4,6 +4,7 @@
 \usepackage[breaklinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{appendix}
 \begin{document}
 
 \begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
@@ -114,33 +115,20 @@ The second objective is to answer the question that will identify the different 
 \subsection{Existing Work}
 
 Social media is increasingly prevalent in commerce, politics, and all societal interaction. Unsurprising, research seeking to measure and understand social media influence and impact is prevalent. 
+
 There are several studies that are related to our project objectives. Several use similar centrality measures and some community detection techniques. 
 
+\paragraph{A Comparative Study of Modularity-Based Community Detection Methods for Online Social Networks \cite{modularity-based-community}}   
+ 
+Karatas and Sahin also focus on communities in social networks using modularity. The study assesses datasets from multiple social media platforms using different static community detection algorithms and specifically focus on "modularity values, running time and accuracy" and compare and contrast these different algorithms for community detection assessing their strengths and weaknesses. The performance of the different algorithms were analyzed by measuring their modularity value, F1-score, and running time. Five different algorithms were used and the Louvain algorithm performed the best overall. The study suggests the following as problems with the current available community detection algorithms: stability, scalability, refinement on computational complexity, dynamicity, and prediction. These ideas prompt and encourage future research on community network structure and development of new community detection algorithms.
 
-\paragraph{Existing Work 1 \cite{world-happiness-report-2018}} A Comparative Study of Modularity-Based Community Detection Methods for Online Social Networks 
+\paragraph{Social Circles in Facebook communities \cite{social-network-networkx}}   
 
-http://ceur-ws.org/Vol-2201/UYMS_2018_paper_68.pdf	
+The Social Circles in Facebook Communities study used the egonet dataset to assess specific subsets of the Facebook network which they termed social circles. Social circles are smaller groups within an individual's social network such as friends from highschool or the workplace. The study utilized the egonet data set to construct various models of social circles and calculate Min Edit Distance and was purposed to: "predict what communities would form or what circles can be created using the given friendships" \cite{social-network-networkx}. Initially Clique Percolation to model the social circle data, but later in the study, the researchers found that Spectral Clustering was more effective. "Spectral Clustering is a way to cluster based on 'Affinity' and connectivity" \cite{social-network-networkx}. Our paper perhaps is a logical partner and expansion on this study. In the future perhaps integrating these two concepts would benificatial. The incorporation influence assessment might be a beneficial step towards identifying how communities would form around influential nodes.
 
-Karatas & Sahin also focus on communities in social networks using modularity. The study assesses datasets from multiple social media platforms using different static community detection algorithms and specifically focus on “modularity values, running time and accuracy” and compare and contrast these different algorithms for community detection assessing their strengths and weaknesses. The performance of the different algorithms were analyzed by measuring their modularity value, F1-socre, and running time. Five different algorithms were used and the Louvain algorithm performed the best overall. The study suggests the following as problems with the current available community detection algorithms: stability, scalability, refinement on computational complexity, dynamicity, and prediction. These ideas prompt and encourage future research on community network structure and development of new community detection algorithms. 
-   
-\paragraph{Existing Work 2 \cite{world-happiness-report-2018}} Social Circles in Facebook communities
-
-http://cseweb.ucsd.edu/classes/sp15/cse190-c/reports/sp15/022.pdf
-
-The Social Circles in Facebook Communities study used the egonet dataset to assess specific subsets of the Facebook network which they termed social circles. Social circles are smaller groups within an individual’s social network such as friends from highschool or the workplace. The study utilized the egonet data set to construct various models of social circles and calculate Min Edit Distance and was purposed to: “predict what communities would form or what circles can be created using the given friendships” (Bansal, Anandan, & Techavatnavisal). Initially Clique Percolation to model the social circle data, but later in the study, the researchers found that Spectral Clustering was more effective. “Spectral Clustering is a way to cluster based on ‘Affinity’ and connectivity” (Bansal, Anandan, & Techavatnavisal). Our study perhaps is a logical partner and expansion on this study. In the future perhaps integrating these two concepts would benificatial. The incorporation influence assessment might be a beneficial step towards identifying how communities would form around influential nodes.
-
-\paragraph{Existing Work 3 \cite{world-happiness-report-2018}} Network Analysis of Page Likes from Facebook User Profiles
-
-https://ufdc.ufl.edu/UF00091523/00851
-
-This study is unique because instead of analyzing social media network data where the nodes represent individuals connected to other individuals, they place Facebook pages representing companies instead of individuals as the nodes and connect them to people based upon page likes. Using the myPersonality application, Facebook pages with at least 100 likes were included as nodes and data was analyzed by calculation of clustering coefficient, diameter, and average path length. The study found that “the network’s in-degree distribution follows a power law” (Brauner, Kocheturov, & Pardalos). The conclusion of the study is that the structure of social media networks is consistent with small-world networks which are “characterized by dense local clustering and a short average path length between pairs of nodes” (Brauner, Kocheturov, & Pardalos)
-
-\paragraph{Existing Work 4 \cite{world-happiness-report-2018}} Social Network Analysis with NetworkX
-
-https://blog.dominodatalab.com/social-network-analysis-with-networkx/
+\paragraph{Network Analysis of Page Likes from Facebook User Profiles \cite{page-likes-facebook}}
 
 This study used the Python library NetworkX to analyze network data from Facebook in graphic form. Using Facebook ego network which structures data along a central vertex, the exercise started by analyzing betweenness centrality to determine the most connected individuals present in the dataset. After calculating betweenness centrality, the highest scoring 10 in the dataset were placed as central hubs within the graph. Next different communities were identified using community detection algorithms focusing on the modularity of the network or the fraction of edges. 
-
 
 \section{Process and Approaches}
 
@@ -273,11 +261,22 @@ Similar to degree, the top ten Eigenvector nodes are government related page typ
 \subsection{Community Detection - Modularity}
 The second objective evolves around the idea of community within a network and method to detect those communities. According to a research article called "Defining and Identifying Communities in Networks", a community is a group of nodes that have more dense connections  between themselves comparing to the rest of the network \cite{Radicchi2658}. One of the popular methods to detect community is by using Modularity measurement. Modularity is "the the portion of the edge connections within the same cluster minus the expected portion if the connections were distributed randomly" \cite{li_modular}.
 
-Gephi can calculate and divide a network into each Modularity Class by providing a resolution number. According to Gephi's instruction, the higher the resolution value, the fewer the modularity classes there are. By passing a resolution value of 10, Gephi detected 8 modularity classes. 
+Gephi can calculate and divide a network into each Modularity Class by providing a resolution number. According to Gephi's instruction, the higher the resolution value, the fewer the modularity classes there are. By passing a resolution value of 10, Gephi detected 8 modularity classes. Half of the modularity classes made up 98.37\% of the entire population; therefore, they can be the main four communities to compare to the four categories of Facebook pages (see \textbf{Figure 12}). 
+
+\begin{figure}[hbt!]
+\includegraphics[scale=0.3]{modularity_community.JPG} 
+\caption{Modularity Classes Graph}
+\end{figure}
 
 
-\subsection{Visualize, Analyze and Compare}
 
+\section{Visualize, Analyze and Compare}
+
+\subsection{Comparing Degree Centrality to other Centralities}
+
+\subsection{Visualizing and Analyzing Network of Each Page Category}
+
+\subsection{Comparing Community Detection Results to Page Types}
 
 \section{Discussion}
 
@@ -289,4 +288,32 @@ Gephi can calculate and divide a network into each Modularity Class by providing
 \section{References}
 \bibliography{references} 
 \bibliographystyle{ieeetr}
+
+
+\appendixpage
+\paragraph{Appendix A\newline\newline}
+\includegraphics[scale=0.22]{betweennesscentraility_gov.png}
+\paragraph{Appendix B\newline\newline}
+\includegraphics[scale=0.22]{betweennesscentraility_politician.png}
+\newline
+\paragraph{Appendix C\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{betweennesscentraility_tvshow.png}
+\paragraph{Appendix D\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{betweennesscentraility_com.png}
+\paragraph{{\newline\newline}Appendix E\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{closennesscentraility_gov.png}
+\paragraph{{\newline}Appendix F\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{closennesscentraility_pol.png}
+\paragraph{Appendix G\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{closennesscentraility_tv.png}
+\paragraph{{\newline}Appendix H\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{closennesscentraility_com.png}
+\paragraph{Appendix I\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{eigenvectorcentraility_gov.png}
+\paragraph{{\newline}Appendix J\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{eigenvectorcentraility_pol.png}
+\paragraph{Appendix K\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.22]{eigenvectorcentraility_tv.png}
+\paragraph{{\newline\newline\newline\newline}Appendix L\newline\newline\newline\newline\newline}
+\includegraphics[scale=0.21]{eigenvectorcentraility_com.png}
 \end{document}
