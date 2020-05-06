@@ -275,8 +275,58 @@ Gephi can calculate and divide a network into each Modularity Class by providing
 \subsection{Comparing Degree Centrality to other Centralities}
 
 \subsection{Visualizing and Analyzing Network of Each Page Category}
+One area that needs more exploration is identifying influential nodes per each page category. When exploring the entire network as a whole, government pages were the majority of the resulted influential nodes. However, in some cases, there might be specific need to know the influential nodes of each individual category. Therefore, instead of exploring the entire network as a whole, it is beneficial to filter the network by page type to analyze the network of each page category using betweenness, closeness, and Eigenvector centralities. 
+
+\subsubsection{Governmental Organization Pages Network}
+By filtering the original network by page type of 'government' with nodes that are higher than 100 degree, it resulted in a new network of 231 nodes and 4,869 edges. After recalculating all centralities using the new government page network, Gephi can visualize and rank nodes with higher centralities by darkening node color and increasing node size. 
+
+\paragraph{Betweenness Centrality}
+\textbf{Appendix A} is the visualization of the betweenness centrality ranking of the government pages network. The three nodes with the highest betweenness centrality value are 10379, 19743, 21729, which are U.S Department of State, The White House, and The Obama White House, respectively. The result of this filtered population is similar to the result of the entire network as government pages have the highest population and high degree nodes. However, the order of ranking are different from filtered government population to the entire network. Though being the 6th highest degree node, the U.S Department of State is the highest value of betweenness centrality within its own page type. In another words, U.S Depart of State has the shortest-path to the rest of the governmental organization pages. This information is useful if the use case is to identify nodes that can influence the majority of the government pages. 
+
+\paragraph{Closeness Centrality}
+For closeness centrality of government pages, the ranking is showned in \textbf{Appendix F}. Closeness centrality graph is a lot different than the betweenness centrality graph of government pages network. There are a lot darker nodes meaning there are many nodes with high closeness centrality value. Some of the nodes with high closeness centrality value are 1387 - Honolulu District, U.S. Army Corps of Engineers, 16895 - U.S. Army, 19743 - The White House, 21729 - The Obama White House, and so on. Some of the examples were also nodes with high betweenness centrality; however, some of them were not. By Using closeness centrality, more influential nodes were identified and they are all efficient in spreading information, just not by using the same path measurements to other connected nodes.
+
+\paragraph{Eigenvector Centrality}
+The ranking of Eigenvectore centrality of government pages is displayed in \textbf{Appendix J}. There are two nodes that are darker than the rest which are 14497 and 16895. Node 14497 is U.S. Army Chaplain Corps and node 16895 is U.S. Army. Again, U.S. Army was also one of the top node for betweenness centrality and closeness centrality. U.S Army Chaplain Corps is a new node that stands out a lot more by using eigenvector centrality.
+
+In summary, U.S Army seems to be the most obviously and safe influential node pick since it has the highest ranking in every centrality measurement. However, other nodes are also useful for different scenario and needs. However, all of these nodes are not new information, they were already discovered by looking at the top ten degree nodes of the whole network.
+
+\subsubsection{Politician Pages Network}
+The next filtered network is by selecting nodes that have page type of 'politicians' and have higher than 100 degree. This politician network contains 64 nodes and 379 edges. 
+\paragraph{Betweenness Centrality}
+\textbf{Appendix B} is the graph of betweenness centrality ranking for politician pages network. Some of the more visible nodes are  11611, 11003, and 3906. Node 11611 is Justin Trudeau, node 11003 is Barack Obama, and node 3906 is Michael Roth. Beside Barack Obama being mentioned in the top ten closeness and between centrality of the whole network, the other two nodes are complete new findings. This information can be used for those whom are interested in influencing or spreading information within specifically politician pages using the shortest-path measurements. 
+
+\paragraph{Closeness Centrality}
+In \textbf{Appendix F}, node 18819, 3906, and 11003 were the highest closeness centrality nodes within politician network. They are Niels Annen, Michael Roth, and Barack Obama respectively. Niels Annen is a discover using closeness centrality measurement.
+ 
+\paragraph{Eigenvector Centrality}
+\textbf{Appendix J} is the graph of eigenvector centrality ranking for politician network. It does not show any nodes that stands out with specifically higher value of eigenvector comparing to the rest of the nodes.
+
+\subsubsection{Television Show Pages Network}
+By selecting page type of 'tvshow' and higher than 100 degree nodes, it results in a new filtered television show network. This network contains 90 nodes and 1917 edges.
+
+\paragraph{Betweenness Centrality}
+\textbf{Appendix C} shows the ranking of betweenness centrality of television show pages network. Interestingly, it is quite obvious that there are two separate clusters within this network and the three highest between centrality nodes are the connection points between the two clusters. It is still unclear and require more analysis on what the differences between the two clusters are. The three highest betweenness centrality nodes are 18952, 11248, 4296 which represents Access, Empire, and Home \& Family, respectively. All of these nodes are new information are essential for the use case of finding influential nodes within television shows network and can be overseen by just looking at the network as a whole. 
+
+\paragraph{Closeness Centrality}
+For closeness centrality ranking of television show network, \textbf{Appendix G} shows that the majority of the nodes in the bigger cluster have high closeness centrality comparing to the other cluster. Some of the darker nodes such as 11428, 13140, and 1517 have higher closeness centrality than the rest. Node 11428 is the show Empire, node 13140 is New Girl, and node 1517 is Brooklyn Nine-Nine. None of them were highlighted using betweenness centrality. 
+
+\paragraph{Eigenvector Centrality}
+\textbf{Appendix K} shows that there are no node that have spefically higher eigenvector centrality comparing to the rest of the television show pages.
+
+\subsubsection{Company Pages Network}
+Company pages network has lower degree nodes as shown in \textbf{Figure 7}; therefore, the filter criteria is different than the rest of the networks. The filtered company network is using nodes that are higher than 50 degree with page type of 'company'.
+\paragraph{Betweenness Centrality}
+\textbf{Appendix D} shows the betweenness centrality ranking of company pages network. Some noticeable nodes are 20083 - DIRECTV Puerto Rico and 5114 - Cartoon Network. This information is really interesting because big companies like Facebook or Walmart showed up in the highest degree company pages list but did not make it to the highest betweenness centrality list. This is another example of how degree centrality can be different than betweenness centrality.
+
+\paragraph{Closeness Centrality}
+\textbf{Appendix H} is the ranking visualization of closeness centrality for company pages network. Some larger size nodes are 14228, 701, and 20083. Node 20083 represents DIRECTV Puerto Rico was already discovered using betweenness centrality, node 701 is Facebook which is the highest degree node within compage pages, and 14228 is Oreo company. Oreo is a new finding that did not show up in the top ten degree list nor the highest betweenness centrality list for company pages.
+
+\paragraph{Eigenvector Centrality}
+\textbf{Appendix L} shows no node with higher eigenvector comparing to the rest of the company pages. 
 
 \subsection{Comparing Community Detection Results to Page Types}
+By comparing between \textbf{Figure 3} and \textbf{Figure 12}, there are some similarities but some differences. A portion of government pages stay within the same community (modularity class 4) while the rest are in a different community (modularity class 0) that contains mostly politician. The majority of company pages are actually in the same community as government pages. Some government and politician pages are also in the same new community (modularity class 1).      
 
 \section{Discussion}
 
