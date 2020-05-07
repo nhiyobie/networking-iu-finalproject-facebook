@@ -83,12 +83,11 @@
 \author{Daniel Hinders and Nhi Tran}
 \maketitle
 \begin{abstract}
-Over the last few decades social media has become a large part life and society. With the aid of social media, social influence can take place without physical human interaction and allow people to influence each other just by having social media accounts and the ability to access the Internet. After social media became popular, researchers and scientists have been studying the impact of social media using different methods such as surveys, trials, scientific experiments, and so on. Analyzing social media network graphs is another way of studying social media impact that this paper will cover. Given a public dataset of Page to Page network from Facebook in November 2017, multiple network graph measurements and a community detection method will help identify influential Facebook pages within a network. By understanding the differences between measurements and what information they provide, it will be beneficial to apply similar measurements and analysis methods on other social media networks to identify influential nodes\end{abstract}
+Over the last few decades social media has become a large part of life and society. With the aid of social media, social influence can be exerted by people, organization and government entities without physical human interaction. This project looks closely at the hallmarks of influential nodes and how to identify them in a social network. In addition the presence of communities and influential nodes in those communities was studied.  A public dataset of subset of the Facebook social network was used sourced from November 2017. Multiple network graph measurements and a community detection method were used to identify influential Facebook pages within a network. The analysis in this project identified several key nodes as as highly influential in the network and in their respective communities. The study also found that tools like Networkx and Gephi are excellent tools to formulate algorithmic based evaluation to identify influence in a social network.\end{abstract}
 
 \section{Introduction}
 
 Social media amplifies individuals, organizations, and government agencies' ability to influence others.  This influence can be exerted anytime and even anonymously. It is important to be able to identify centers of influence within a social network. Without the tools to quickly identify influential nodes, a network can be too large to study and time-consuming for anyone to get useful information.    
-
 
 \subsection{Background}
 
@@ -102,12 +101,12 @@ Understanding all of these social media forces and impacts is important on many 
 
 \subsection{Motivation and Objectives}
 
-The ultimate purpose of this paper is to analyze a public Facebook Page-to-Page network to identify important nodes and different communities. 
+This project's goal is to analyze a public Facebook Page-to-Page network to identify important nodes and important nodes within different communities. In addition this project seeks to identify methods, tools and algorithms to evaluate influence in a social network. 
 
-The first objective is to answer the question that will observe the potential differences between multiple centrality measurements that help identify important nodes within a network - Can we simply use degree centrality to identify powerful nodes in a network?
+To achieve this goal, an objective was established to observe the differences between multiple centrality measurements and ultimately identify influential nodes within a network. The objective is pursued evaluating if degree centrality(the number of connections a node has with other nodes in the network) is sufficient to definitively identify influential nodes in a network.
 
 
-The second objective is to answer the question that will identify the difference between a predetermined classification of a network and how likely would the nodes form a community within their own classification - Can we use page type to detect communities?
+A second objective was established to further pursue the project’s goal. The objective was to evaluate communities that exist around important nodes and also to determine if types of nodes in the network, in this network four different node page types, will be the basis around which communities in the network are formed.
 
 
 \subsection{Existing Work}
