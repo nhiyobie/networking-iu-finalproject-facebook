@@ -83,7 +83,7 @@
 \author{Daniel Hinders and Nhi Tran}
 \maketitle
 \begin{abstract}
-Over the last few decades social media has become a large part of life and society. With the aid of social media, social influence can be exerted by people, organization and government entities without physical human interaction. This project looks closely at the hallmarks of influential nodes and how to identify them in a social network. In addition the presence of communities and influential nodes in those communities was studied.  A public dataset of subset of the Facebook social network was used sourced from November 2017. Multiple network graph measurements and a community detection method were used to identify influential Facebook pages within a network. The analysis in this project identified several key nodes as as highly influential in the network and in their respective communities. The study also found that tools like Networkx and Gephi are excellent tools to formulate algorithmic based evaluation to identify influence in a social network.\end{abstract}
+Over the last few decades, social media has become a large part of life and society. With the aid of social media, social influence can be exerted by people, organizations, and government entities without physical human interaction. This project looks closely at the hallmarks of influential nodes and how to identify them in a social network. Additionally, the presence of communities and influential nodes in those communities was studied.  A public dataset of a subset of the Facebook social network sourced from November 2017 was used. Multiple network graph measurements and a community detection method were used to identify influential Facebook pages within a network. The analysis in this project identified several key nodes as highly influential in the network and their respective communities. The study also found that tools like Networkx and Gephi are excellent tools to formulate algorithmic-based evaluation to identify influence in a social network.\end{abstract}
 
 \section{Introduction}
 
@@ -101,7 +101,7 @@ Understanding all of these social media forces and impacts is important on many 
 
 \subsection{Motivation and Objectives}
 
-This project's goal is to analyze a public Facebook Page-to-Page network to identify important nodes and important nodes within different communities. In addition this project seeks to identify methods, tools and algorithms to evaluate influence in a social network. 
+This project's goal is to analyze a public Facebook Page-to-Page network to identify important nodes and important nodes within different communities. In addition, this project seeks to identify methods, tools, and algorithms to evaluate influence in a social network. 
 
 To achieve this goal, an objective was established to observe the differences between multiple centrality measurements and ultimately identify influential nodes within a network. The objective is pursued evaluating if degree centrality(the number of connections a node has with other nodes in the network) is sufficient to definitively identify influential nodes in a network.
 
@@ -113,11 +113,11 @@ A second objective was established to further pursue the project’s goal. The o
 
 Social media is increasingly prevalent in commerce, politics, and all societal interaction. Unsurprising, research seeking to measure and understand social media influence and impact is prevalent. 
 
-There are several studies that are related to our project objectives. Some of them use similar centrality measures and some community detection techniques. 
+Several studies are related to our project objectives. Some of them use similar centrality measures and some community detection techniques. 
 
 \paragraph{A Comparative Study of Modularity-Based Community Detection Methods for Online Social Networks \cite{modularity-based-community}}   
  
-In this paper Karatas and Sahin focus on finding communities in social networks using modularity. The study assesses datasets from multiple social media platforms using different static community detection algorithms and specifically focus on "modularity values, running time and accuracy"\cite{modularity-based-community} and compare and contrast these different algorithms for community detection assessing their strengths and weaknesses. The performance of the different algorithms was analyzed by measuring their modularity value, F1-score, and running time. Five different algorithms were used and the Louvain algorithm performed the best overall. The study suggests the following as problems with the currently available community detection algorithms: stability, scalability, refinement on computational complexity, dynamicity, and prediction. These ideas prompt and encourage future research on community network structure and the development of new community detection algorithms.
+In this paper, Karatas and Sahin focus on finding communities in social networks using modularity. The study assesses datasets from multiple social media platforms using different static community detection algorithms and specifically focuses on "modularity values, running time and accuracy"\cite{modularity-based-community} and compare and contrast these different algorithms for community detection assessing their strengths and weaknesses. The performance of the different algorithms was analyzed by measuring their modularity value, F1-score, and running time. Five different algorithms were used and the Louvain algorithm performed the best overall. The study suggests the following as problems with the currently available community detection algorithms: stability, scalability, refinement on computational complexity, dynamicity, and prediction. These ideas prompt and encourage future research on community network structure and the development of new community detection algorithms.
 
 \paragraph{Social Circles in Facebook communities \cite{social-network-networkx}}   
 
@@ -130,7 +130,7 @@ This study used the Python library NetworkX to analyze network data from Faceboo
 
 \paragraph{Network Analysis of Page Likes from Facebook User Profiles \cite{page-likes-facebook}}
 
-This study is unique because instead of analyzing social media network data where the nodes represent individuals connected to other individuals, they place Facebook pages representing companies instead of individuals as the nodes and connect them to people based upon page likes. Using the myPersonality application, Facebook pages with at least 100 likes were included as nodes and data was analyzed by calculation of clustering coefficient, diameter, and average path length. The study found that “the network’s in-degree distribution follows a power law” \cite{page-likes-facebook}. The conclusion of the study is that the structure of social media networks is consistent with small-world networks which are “characterized by dense local clustering and a short average path length between pairs of nodes” \cite{page-likes-facebook}. Our project incroporates some of the methods and objectives of this study and helped shape the project goals.
+This study is unique because instead of analyzing social media network data where the nodes represent individuals connected to other individuals, they place Facebook pages representing companies instead of individuals as the nodes and connect them to people based upon page likes. Using the myPersonality application, Facebook pages with at least 100 likes were included as nodes, and data were analyzed by calculation of clustering coefficient, diameter, and average path length. The study found that “the network’s in-degree distribution follows a power law” \cite{page-likes-facebook}. The study concludes that the structure of social media networks is consistent with small-world networks which are “characterized by dense local clustering and a short average path length between pairs of nodes” \cite{page-likes-facebook}. Our project incorporates some of the methods and objectives of this study and helped shape the project goals.
 
 \section{Process and Approaches}
 
@@ -153,7 +153,7 @@ The dataset is November 2017 Facebook Large Page-Page Network from Stanford Netw
 
 Each edge represents a mutual like between pages and each node is a Facebook page. There are four categories classifies for the Facebook pages: governmental organizations, politicians, television shows, and companies. The raw data contains 22,470 nodes and 171,002 edges.
 
-\subsection{Data Cleaning and High Level Information}
+\subsection{Data Cleaning and High-Level Information}
 
 \paragraph{Tools}
 The following software and tools were used to perform the analysis:
@@ -166,7 +166,7 @@ The following software and tools were used to perform the analysis:
 \paragraph{Cleanup}
 After using Pandas Python package to read and combine the edges list and pages categories information csv files, the next step would be converting the data into graph object and removing self-loops, edges that connect a node to itself. After removing self-loops, the total edge count reduced from 171,002 to 170,823.
 
-\paragraph{High Level Information} 
+\paragraph{High-Level Information} 
 The average degree is 15.2045, which means that on average, each node connects to about 15 other nodes. 
 
 \begin{figure}[hbt!]
@@ -174,7 +174,7 @@ The average degree is 15.2045, which means that on average, each node connects t
 \caption{Percentage of Page Category}
 \end{figure}
 
-\textbf{Figure 2} provides the composition of page category within the network.
+\textbf{Figure 2} provides the composition of page categories within the network.
 
 
 \begin{figure}[hbt!]
@@ -274,24 +274,24 @@ Gephi can calculate and divide a network into each Modularity Class by providing
 \section{Visualize, Analyze and Compare}
 
 \subsection{Analysis and Comparison Methods}
-Network Science provides concepts and approaches to help measure influence from analysis, foremost of these approaches is an algorithmic tool to evaluate nodes, edges, communities in a network. Using these tools, the objective measurement was possible to evaluate the importance and influence in a network like the Facebook dataset that was selected for this study. The selection of the algorithms used to measure influence was done carefully in order to address the measure influence from as many objective angles as possible. The analysis was conducted to measure centrality, community structure, and overall importance of nodes in the Facebook dataset.
+Network Science provides concepts and approaches to help measure influence from analysis, foremost of these approaches is an algorithmic tool to evaluate nodes, edges, communities in a network. Using these tools, the objective measurement was possible to evaluate the importance and influence in a network like the Facebook dataset that was selected for this study. The selection of the algorithms used to measure influence was done carefully to address the measure influence from as many objective angles as possible. The analysis was conducted to measure centrality, community structure, and overall importance of nodes in the Facebook dataset.
 
 \subsection{Comparing Degree Centrality to other Centrality Measurements}
 
 \subsection{Visualizing and Analyzing Network of Each Page Category}
-One area that needs more exploration is identifying influential nodes per each page category. When exploring the entire network as a whole, government pages were the majority of the resulted influential nodes. However, in some cases, there might be a specific need to know the influential nodes of each individual category. Therefore, instead of exploring the entire network as a whole, it is beneficial to filter the network by page type to analyze the network of each page category using betweenness, closeness, and Eigenvector centrality measurements. 
+One area that needs more exploration is identifying influential nodes per each page category. When exploring the entire network as a whole, government pages were the majority of the resulted influential nodes. However, in some cases, there might be a specific need to know the influential nodes of each category. Therefore, instead of exploring the entire network as a whole, it is beneficial to filter the network by page type to analyze the network of each page category using betweenness, closeness, and Eigenvector centrality measurements. 
 
 \subsubsection{Governmental Organization Pages Network}
 By filtering the original network by page type of 'government' with nodes that are higher than 100 degrees, it resulted in a new network of 231 nodes and 4,869 edges. After recalculating all centrality measurements using the new government page network, Gephi can visualize and rank nodes with higher value by darkening node color and increasing node size. 
 
 \paragraph{Betweenness Centrality}
-\textbf{Appendix A} is the visualization of the betweenness centrality ranking of the government pages network. The three nodes with the highest betweenness centrality value are 10379, 19743, 21729, which are the U.S Department of State, The White House, and The Obama White House, respectively. The result of this filtered population is similar to the result of the entire network as government pages have the highest population and high degree nodes. However, the order of ranking is different from the filtered government population to the entire network. Though being the 6th highest degree node, the U.S Department of State is the highest value of betweenness centrality within its own page type. In other words, the U.S Depart of State has the shortest-path to the rest of the governmental organization pages. This information is useful if the use case is to identify nodes that can influence the majority of the government pages. 
+\textbf{Appendix A} is the visualization of the betweenness centrality ranking of the government pages network. The three nodes with the highest betweenness centrality value are 10379, 19743, 21729, which are the U.S Department of State, The White House, and The Obama White House, respectively. The result of this filtered population is similar to the result of the entire network as government pages have the highest population and high degree nodes. However, the order of ranking is different from the filtered government population to the entire network. Though being the 6th highest degree node, the U.S Department of State is the highest value of betweenness centrality within its page type. In other words, the U.S Depart of State has the shortest-path to the rest of the governmental organization pages. This information is useful if the use case is to identify nodes that can influence the majority of the government pages. 
 
 \paragraph{Closeness Centrality}
-For the closeness centrality of government pages, the ranking is shown in \textbf{Appendix F}. The closeness centrality graph is a lot different than the betweenness centrality graph of government pages network. There are a lot of darker nodes meaning there are many nodes with high closeness centrality value. Some of the nodes with high closeness centrality value are 1387 - Honolulu District, U.S. Army Corps of Engineers, 16895 - U.S. Army, 19743 - The White House, 21729 - The Obama White House, and so on. Some of the examples were also nodes with high betweenness centrality; however, some of them were not. Using closeness centrality, more influential nodes were identified and they are all efficient in spreading information, just not by using the same path measurements to other connected nodes.
+For the closeness centrality of government pages, the ranking is shown in \textbf{Appendix E}. The closeness centrality graph is a lot different than the betweenness centrality graph of government pages network. There are a lot of darker nodes meaning there are many nodes with high closeness centrality value. Some of the nodes with high closeness centrality value are 1387 - Honolulu District, U.S. Army Corps of Engineers, 16895 - U.S. Army, 19743 - The White House, 21729 - The Obama White House, and so on. Some of the examples were also nodes with high betweenness centrality; however, some of them were not. Using closeness centrality, more influential nodes were identified and they are all efficient in spreading information, just not by using the same path measurements to other connected nodes.
 
 \paragraph{Eigenvector Centrality}
-The ranking of Eigenvector centrality of government pages is displayed in \textbf{Appendix J}. Two nodes are darker than the rest which are 14497 and 16895. Node 14497 is U.S. Army Chaplain Corps and node 16895 is U.S. Army. Again, the U.S. Army was also one of the top nodes for betweenness centrality and closeness centrality. U.S Army Chaplain Corps is a new node that stands out a lot more by using eigenvector centrality.
+The ranking of Eigenvector centrality of government pages is displayed in \textbf{Appendix I}. Two nodes are darker than the rest which are 14497 and 16895. Node 14497 is U.S. Army Chaplain Corps and node 16895 is U.S. Army. Again, the U.S. Army was also one of the top nodes for betweenness centrality and closeness centrality. U.S Army Chaplain Corps is a new node that stands out a lot more by using eigenvector centrality.
 
 In summary, U.S Army seems to be the most obvious and safe influential node pick since it has the highest ranking in every centrality measurement. However, other nodes are also useful for different scenarios and needs. However, all of these nodes are not new information, they were already discovered by looking at the top ten degree nodes of the whole network.
 
